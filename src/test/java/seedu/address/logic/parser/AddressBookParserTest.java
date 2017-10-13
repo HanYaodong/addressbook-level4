@@ -15,12 +15,14 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.logic.commands.ExitCommand;
+import seedu.address.logic.commands.ExportCommand;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.HistoryCommand;
@@ -81,6 +83,16 @@ public class AddressBookParserTest {
     public void parseCommand_exit() throws Exception {
         assertTrue(parser.parseCommand(ExitCommand.COMMAND_WORD) instanceof ExitCommand);
         assertTrue(parser.parseCommand(ExitCommand.COMMAND_WORD + " 3") instanceof ExitCommand);
+    }
+
+    @Test
+    public void parseCommand_export() throws Exception {
+        String filePath = "someFile.xml";
+        List<Index> indexes = Arrays.stream(new Integer[]{1, 2, 3})
+            .map(Index::fromOneBased).collect(Collectors.toList());
+        ExportCommand command = (ExportCommand) parser.parseCommand(
+            ExportCommand.COMMAND_WORD + " 1, 2 3 ; " + filePath + "  ");
+        assertEquals(command, new ExportCommand(indexes, filePath));
     }
 
     @Test
