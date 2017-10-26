@@ -32,6 +32,11 @@ public class LogicManager extends ComponentManager implements Logic {
     }
 
     @Override
+    public String autoCompleteCommand(String command) {
+        return AutoComplete.autoComplete(command, model.getFilteredPersonList());
+    }
+
+    @Override
     public CommandResult execute(String commandText) throws CommandException, ParseException {
         logger.info("----------------[USER COMMAND][" + commandText + "]");
         try {

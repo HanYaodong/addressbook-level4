@@ -4,6 +4,7 @@ import static org.junit.Assert.assertTrue;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX;
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
+import static seedu.address.logic.AutoComplete.autoComplete;
 import static seedu.address.testutil.TestUtil.getLastIndex;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static seedu.address.testutil.TypicalPersons.KEYWORD_MATCHING_MEIER;
@@ -222,7 +223,8 @@ public class ExportCommandSystemTest extends AddressBookSystemTest {
         Model expectedModel = getModel();
 
         executeCommand(command);
-        assertApplicationDisplaysExpected(command, expectedMessage, expectedModel);
+        assertApplicationDisplaysExpected(
+            autoComplete(command, expectedModel.getFilteredPersonList()), expectedMessage, expectedModel);
         assertCommandBoxShowsErrorStyle();
         assertSelectedCardUnchanged();
         assertStatusBarUnchanged();
