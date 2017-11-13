@@ -1,4 +1,4 @@
-= AddressBook Level 4 - Developer Guide
+= Address Book Pro - Developer Guide
 :toc:
 :toc-title:
 :toc-placement: preamble
@@ -911,7 +911,7 @@ We now have everything set up... but we still can't modify the remarks. Let's fi
 ==== Full Solution
 
 See this https://github.com/se-edu/addressbook-level4/pull/599[PR] for the step-by-step solution.
-// end::undoredo[]
+// end::remark[]
 
 [appendix]
 == User Stories

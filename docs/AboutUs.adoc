@@ -4,7 +4,7 @@ ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 :imagesDir: images
 :stylesDir: stylesheets
 
-AddressBook - Level 4 was developed by the https://cs2103aug2017-f11-b4.github.io/main/AboutUs.html[F11-B4] team. +
+Address Book Pro was developed by the https://cs2103aug2017-f11-b4.github.io/main/AboutUs.html[F11-B4] team. +
 {empty} +
 We are a team based in the http://www.comp.nus.edu.sg[School of Computing, National University of Singapore].
 
